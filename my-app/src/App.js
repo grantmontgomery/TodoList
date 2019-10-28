@@ -1,31 +1,17 @@
 import React, { Component } from 'react';
-// import {ToDos} from "./components"
-// import {Input} from "./components"
+import {ToDos} from "./components"
+
 
 
 class App extends Component {
     constructor(props){
         super(props)
-        this.state=[]
-    }
-    createTodo(){
-        
-    }
-    deleteTodo(){
-        
+        this.state= {value: ""}
     }
     render() { 
         return (
             <React.Fragment>
-                <div>
-                    <input type=""/>
-                    <button>Submit</button>
-                </div>
-                <div>
-                    <ul>
-
-                    </ul>
-                </div>
+                    <ToDos></ToDos>
             </React.Fragment>
         )
     }

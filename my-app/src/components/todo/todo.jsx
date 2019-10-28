@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 
 
 class ToDo extends Component {
-    state = {  }
+    constructor(props){
+        super(props)
+        this.state = {id: this.props.id, value: this.props.value}
+    }
     render() { 
         return (
-            <div>
+            <div todoId={this.state.id}>
                 <input type="checkbox"/>
-                <span>Wash Dishes </span>
-                <button>Delete</button>
+                <span>{this.state.value}</span>
+                <button onClick={() => this.props.deleteTodo(this.state.id)}>Delete</button>
             </div>
           );
     }
