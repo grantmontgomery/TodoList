@@ -18,15 +18,17 @@ class ToDos extends Component {
         )
         console.log(this.state.newTodo)
     }
-    addTask(){
-        const newTodo = this.state.newTodo
-        const newtodos = this.state.todos.push(newTodo)
-        this.setState({todos: newtodos})
-        this.setState({newTodo: {id: null, task:""}})
+    addTask = () => {
+        this.setState({
+            todos: [...this.state.todos, this.state.newTodo]
+        })
+        this.setState({newTodo: {id: null, value: ""}})
+        console.log(...this.state.todos)
        
     }
     updateInput = newinput => {
-        this.setState({newTodo: {id: this.state.todos.length + 1, task: newinput}})   
+        this.setState({newTodo: {id: this.state.todos.length + 1, task: newinput}})
+        console.log(this.state.newTodo)   
      }
     render() { 
         return (
