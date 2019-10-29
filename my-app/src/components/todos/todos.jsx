@@ -10,24 +10,24 @@ class ToDos extends Component {
             {id: 1, value: "Wash Dishes."},
             {id: 2, value: "Take out trash."}
         ],
-        newTask: null}
-            
+        newTodo: {id: null, value: ""}}
     }
     deleteTodo = todoid => {
         this.setState(
             {todos: this.state.todos.filter(todo => todo.id !== todoid)}
         )
+        console.log(this.state.newTodo)
     }
     addTask(){
-        const todos = this.state.todos
-        const newtask = this.state.newTask
-        this.setState({todos: todos.push({id:todos.length + 1, value: newtask})})
-        this.setState({newTask: ""})
+        const newTodo = this.state.newTodo
+        const newtodos = this.state.todos.push(newTodo)
+        this.setState({todos: newtodos})
+        this.setState({newTodo: {id: null, task:""}})
+       
     }
     updateInput = newinput => {
-        this.setState({newTask: newinput})
-        console.log(this.state.newTask)
-    }
+        this.setState({newTodo: {id: this.state.todos.length + 1, task: newinput}})   
+     }
     render() { 
         return (
         <React.Fragment>
