@@ -8,7 +8,7 @@ class ToDo extends Component {
     }
     render() { 
         return (
-            <div todoId={this.state.id}>
+            <div todoid={this.state.id}>
                 <input type="checkbox"/>
                 <span>{this.state.value}</span>
                 <button onClick={() => this.props.deleteTodo(this.state.id)}>Delete</button>
