@@ -17,16 +17,17 @@ class ToDos extends Component {
         )
     }
     addTask = () => {
-        this.setState({
-            todos: [...this.state.todos, this.state.newTodo]
-        })
-        console.log(this.state.newTodo)
-        this.setState({newTodo: {id: null, value: ""}})
+        if(this.state.newTodo.value === ""){
+            alert("Must enter in a task.")
+        }
+        else{
+            this.setState({
+                todos: [...this.state.todos, this.state.newTodo]
+            })
+            console.log(this.state.newTodo)
+            this.setState({newTodo: {id: null, value: ""}})
+        }
     }
-    // clickAdd(event){
-    //     event.preventDefault()
-    //     this.addTask()
-    // }
     updateInput = newinput => {
         this.setState({newTodo: {id: Math.floor(Math.random() * Math.floor(100)), value: newinput}})   
      }
@@ -41,7 +42,7 @@ class ToDos extends Component {
             newTodo={this.state.newTodo} onSubmit={this.onSubmit}/>
              <ul>
             {this.state.todos.map(todo => 
-                <li key={todo.id}>
+                <li key={todo.id} style={{listStyle: "none"}} draggable="true">
                 <ToDo value={todo.value} id={todo.id} deleteTodo={this.deleteTodo}/>
                 </li>)}
         </ul>

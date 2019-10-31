@@ -18,9 +18,8 @@ class Input extends Component {
             value={this.props.newTodo.value}
             onChange={(e) => this.state.updateInput(e.target.value)}
             />
-            {/* <button onClick={this.state.addTask}>Submit</button> */}
+            <button onClick={e => this.props.onSubmit(e)}>Submit</button>
             </form>
-            <button onClick={this.state.addTask}>Submit</button>
         </div>
             
           );

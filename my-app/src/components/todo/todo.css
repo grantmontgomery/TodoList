@@ -1,0 +1,8 @@
+.todo{
+    border: 1px solid black;
+    width: 300px;
+}
+
+.checked{
+    text-decoration: line-through;
+}
