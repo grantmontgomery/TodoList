@@ -1,0 +1,40 @@
+$primaryItem: rgb(182, 85, 153);
+$primarywidth: 100px;
+
+@mixin flexonem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-300px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.list {
+  position: absolute;
+  float: left;
+  .child {
+    width: $primarywidth;
+    background: $primaryItem;
+    animation-name: slideIn;
+    animation-duration: 200ms;
+    @include flexonem();
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+}
+
+@each .child in .list {
+}
