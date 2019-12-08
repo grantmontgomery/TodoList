@@ -7,6 +7,19 @@ $primarywidth: 100px;
   align-items: center;
 }
 
+.list {
+  position: absolute;
+  float: left;
+  .child {
+    width: $primarywidth;
+    background: $primaryItem;
+    @include flexonem();
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+}
+
 @keyframes slideIn {
   0% {
     transform: translateX(-300px);
@@ -21,20 +34,34 @@ $primarywidth: 100px;
   }
 }
 
-.list {
-  position: absolute;
-  float: left;
-  .child {
-    width: $primarywidth;
-    background: $primaryItem;
-    animation-name: slideIn;
-    animation-duration: 200ms;
-    @include flexonem();
-    &:hover {
-      transform: scale(1.02);
-    }
+@keyframes slideOut {
+  0% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(-300px);
+    opacity: 0;
   }
 }
 
-@each .child in .list {
+.slide-transition-enter {
+  opacity: 0;
+  transform: translateX(-300px);
+}
+.slide-transition-enter-active {
+  animation-name: slideIn;
+  animation-duration: 200ms;
+}
+.slide-transition-exit {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.slide-transition-exit-active {
+  animation-name: slideOut;
+  animation-duration: 200ms;
 }

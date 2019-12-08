@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { ToDo } from "../todo";
 import { Input } from "../input";
+import { CSSTransition } from "react-transition-group";
 import "./todos.css";
 
 class ToDos extends Component {
@@ -8,6 +9,7 @@ class ToDos extends Component {
     super(props);
     this.state = {
       todos: [],
+      slideIn: true,
       newTodo: { id: null, value: "" }
     };
   }
@@ -48,22 +50,26 @@ class ToDos extends Component {
           newTodo={this.state.newTodo}
           onSubmit={this.onSubmit}
         />
-        <ul className="list">
-          {this.state.todos.map(todo => (
-            <li
-              key={todo.id}
-              style={{ listStyle: "none" }}
-              className="child"
-              draggable="true"
-            >
-              <ToDo
-                value={todo.value}
-                id={todo.id}
-                deleteTodo={this.deleteTodo}
-              />
-            </li>
-          ))}
-        </ul>
+        <CSSTransition timeout={1000} in={true} appear>
+          {status => (
+            <ul className="list">
+              {this.state.todos.map(todo => (
+                <li
+                  key={todo.id}
+                  style={{ listStyle: "none" }}
+                  className={`child slide-transition-${status}`}
+                  draggable="true"
+                >
+                  <ToDo
+                    value={todo.value}
+                    id={todo.id}
+                    deleteTodo={this.deleteTodo}
+                  />
+                </li>
+              ))}
+            </ul>
+          )}
+        </CSSTransition>
       </React.Fragment>
     );
   }
