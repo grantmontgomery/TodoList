@@ -25,7 +25,6 @@ class ToDos extends Component {
       this.setState({
         todos: [...this.state.todos, this.state.newTodo]
       });
-      console.log(this.state.newTodo);
       this.setState({ newTodo: { id: null, value: "" } });
     }
   };
@@ -44,11 +43,11 @@ class ToDos extends Component {
 
   applyTransitions = () => {
     return this.state.todos.map(todo => (
-      <CSSTransition timeout={0} classNames="slide-transition">
+      <CSSTransition timeout={3000} classNames="slide-transition">
         <li
           key={todo.id}
           style={{ listStyle: "none" }}
-          className={`child`}
+          className="child"
           draggable="true"
         >
           <ToDo value={todo.value} id={todo.id} deleteTodo={this.deleteTodo} />
@@ -58,6 +57,7 @@ class ToDos extends Component {
   };
 
   render() {
+    console.log(this.state.todos);
     return (
       <React.Fragment>
         <Input
@@ -66,7 +66,9 @@ class ToDos extends Component {
           newTodo={this.state.newTodo}
           onSubmit={this.onSubmit}
         />
-        <ul className="list"></ul>)
+        <ul className="list">
+          <TransitionGroup>{this.applyTransitions()}</TransitionGroup>
+        </ul>
       </React.Fragment>
     );
   }
