@@ -9,7 +9,6 @@ class ToDos extends Component {
     super(props);
     this.state = {
       todos: [],
-      slideIn: true,
       newTodo: { id: null, value: "" }
     };
   }
@@ -42,9 +41,14 @@ class ToDos extends Component {
   }
 
   applyTransitions = () => {
+    let topValue = 0;
     return this.state.todos.map(todo => (
       <CSSTransition timeout={400} classNames="slide-transition">
-        <li key={todo.id} style={{ listStyle: "none" }} className="child">
+        <li
+          key={todo.id}
+          style={{ listStyle: "none", top: `${(topValue += 40)}px` }}
+          className="child"
+        >
           <ToDo value={todo.value} id={todo.id} deleteTodo={this.deleteTodo} />
         </li>
       </CSSTransition>

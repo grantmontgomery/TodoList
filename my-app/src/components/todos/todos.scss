@@ -14,7 +14,6 @@ $primarywidth: 100px;
     width: $primarywidth;
     background: $primaryItem;
     position: absolute;
-    height: 30px;
     @include flexonem();
     &:hover {
       transform: scale(1.02);
@@ -42,25 +41,34 @@ $primarywidth: 100px;
 
   100% {
     opacity: 0;
-    transform: translate(-300px);
+    transform: translate(-300px, 0);
   }
 }
 
 .slide-transition-enter {
   transition: cubic-bezier(0.215, 0.61, 0.355, 1);
+  position: absolute;
 }
 .slide-transition-enter-active {
   animation-name: slideIn;
   animation-duration: 400ms;
   transition: cubic-bezier(0.215, 0.61, 0.355, 1);
+  position: absolute;
 }
 
 .slide-transition-exit {
   transition: cubic-bezier(0.215, 0.61, 0.355, 1);
+  top: 0;
+  transform: translateY(0);
+  position: absolute;
 }
 
 .slide-transition-exit-active {
   animation-name: slideOut;
   animation-duration: 400ms;
   transition: cubic-bezier(0.215, 0.61, 0.355, 1);
+  top: 0;
+
+  transform: translateY(0);
+  position: absolute;
 }
