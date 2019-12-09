@@ -22,31 +22,86 @@
           transform: scale(1.02);
 }
 
+@-webkit-keyframes slideIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-300px);
+            transform: translateX(-300px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-300px);
+            transform: translateX(-300px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+@-webkit-keyframes slideOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-300px);
+            transform: translateX(-300px);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-300px);
+            transform: translateX(-300px);
+  }
+}
+
 .slide-transition-enter {
   opacity: 0;
   -webkit-transform: translateX(-300px);
           transform: translateX(-300px);
+  -webkit-transition: cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .slide-transition-enter-active {
-  opacity: 1;
-  -webkit-transform: translateX(0px);
-          transform: translateX(0px);
-  -webkit-transition: 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  -webkit-animation-name: slideIn;
+          animation-name: slideIn;
+  -webkit-animation-duration: 400ms;
+          animation-duration: 400ms;
+  -webkit-transition: cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .slide-transition-exit {
-  opacity: 1;
-  -webkit-transform: translateX(0px);
-          transform: translateX(0px);
+  -webkit-transition: cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .slide-transition-exit-active {
-  opacity: 0;
-  -webkit-transform: translateX(-300px);
-          transform: translateX(-300px);
-  -webkit-transition: 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  -webkit-animation-name: slideOut;
+          animation-name: slideOut;
+  -webkit-animation-duration: 400ms;
+          animation-duration: 400ms;
+  -webkit-transition: cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 /*# sourceMappingURL=todos.css.map */
