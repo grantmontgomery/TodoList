@@ -13,6 +13,8 @@ $primarywidth: 100px;
   .child {
     width: $primarywidth;
     background: $primaryItem;
+    position: absolute;
+    height: 30px;
     @include flexonem();
     &:hover {
       transform: scale(1.02);
@@ -52,6 +54,7 @@ $primarywidth: 100px;
   animation-duration: 400ms;
   transition: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
+
 .slide-transition-exit {
   transition: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
