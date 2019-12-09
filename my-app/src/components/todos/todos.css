@@ -1,3 +1,27 @@
+.list {
+  position: absolute;
+  float: left;
+}
+
+.list .child {
+  width: 100px;
+  background: #b65599;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.list .child:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+}
+
 @-webkit-keyframes slideIn {
   0% {
     -webkit-transform: translateX(-300px);
@@ -30,31 +54,61 @@
   }
 }
 
-.list {
-  position: absolute;
-  float: left;
+@-webkit-keyframes slideOut {
+  0% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    -webkit-transform: translateX(-300px);
+            transform: translateX(-300px);
+    opacity: 0;
+  }
 }
 
-.list .child {
-  width: 100px;
-  background: #b65599;
+@keyframes slideOut {
+  0% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    -webkit-transform: translateX(-300px);
+            transform: translateX(-300px);
+    opacity: 0;
+  }
+}
+
+.slide-transition-enter {
+  opacity: 0;
+  -webkit-transform: translateX(-300px);
+          transform: translateX(-300px);
+}
+
+.slide-transition-enter-active {
   -webkit-animation-name: slideIn;
           animation-name: slideIn;
   -webkit-animation-duration: 200ms;
           animation-duration: 200ms;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
-.list .child:hover {
-  -webkit-transform: scale(1.02);
-          transform: scale(1.02);
+.slide-transition-exit {
+  opacity: 1;
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+}
+
+.slide-transition-exit-active {
+  -webkit-animation-name: slideOut;
+          animation-name: slideOut;
+  -webkit-animation-duration: 200ms;
+          animation-duration: 200ms;
 }
 /*# sourceMappingURL=todos.css.map */

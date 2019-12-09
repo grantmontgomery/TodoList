@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { ToDo } from "../todo";
 import { Input } from "../input";
-import { CSSTransition } from "react-transition-group";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import "./todos.css";
 
 class ToDos extends Component {
@@ -41,6 +41,22 @@ class ToDos extends Component {
     event.preventDefault();
     this.addTask();
   }
+
+  applyTransitions = () => {
+    return this.state.todos.map(todo => (
+      <CSSTransition timeout={0} classNames="slide-transition">
+        <li
+          key={todo.id}
+          style={{ listStyle: "none" }}
+          className={`child`}
+          draggable="true"
+        >
+          <ToDo value={todo.value} id={todo.id} deleteTodo={this.deleteTodo} />
+        </li>
+      </CSSTransition>
+    ));
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -50,26 +66,7 @@ class ToDos extends Component {
           newTodo={this.state.newTodo}
           onSubmit={this.onSubmit}
         />
-        <CSSTransition timeout={1000} in={true} appear>
-          {status => (
-            <ul className="list">
-              {this.state.todos.map(todo => (
-                <li
-                  key={todo.id}
-                  style={{ listStyle: "none" }}
-                  className={`child slide-transition-${status}`}
-                  draggable="true"
-                >
-                  <ToDo
-                    value={todo.value}
-                    id={todo.id}
-                    deleteTodo={this.deleteTodo}
-                  />
-                </li>
-              ))}
-            </ul>
-          )}
-        </CSSTransition>
+        <ul className="list"></ul>)
       </React.Fragment>
     );
   }
