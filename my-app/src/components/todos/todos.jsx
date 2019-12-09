@@ -43,7 +43,7 @@ class ToDos extends Component {
   applyTransitions = () => {
     let topValue = 0;
     return this.state.todos.map(todo => (
-      <CSSTransition timeout={400} classNames="slide-transition">
+      <CSSTransition key={todo.id} timeout={400} classNames="slide-transition">
         <li
           key={todo.id}
           style={{ listStyle: "none", top: `${(topValue += 40)}px` }}
