@@ -23,30 +23,28 @@ $primarywidth: 100px;
 @keyframes slideIn {
   0% {
     opacity: 0;
-    transform: translateX(-300px);
+    transform: translate(-300px, 0);
   }
 
   100% {
     opacity: 1;
-    transform: translateX(0px);
+    transform: translate(0, 0);
   }
 }
 
 @keyframes slideOut {
   0% {
     opacity: 1;
-    transform: translateX(0px);
+    transform: translate(0, 0);
   }
 
   100% {
     opacity: 0;
-    transform: translateX(-300px);
+    transform: translate(-300px);
   }
 }
 
 .slide-transition-enter {
-  opacity: 0;
-  transform: translateX(-300px);
   transition: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .slide-transition-enter-active {
