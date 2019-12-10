@@ -43,7 +43,7 @@ class ToDos extends Component {
   applyTransitions = () => {
     return this.state.todos.map(todo => (
       <CSSTransition key={todo.id} timeout={400} classNames="slide-transition">
-        <li key={todo.id} className="show">
+        <li key={todo.id}>
           <ToDo value={todo.value} id={todo.id} deleteTodo={this.deleteTodo} />
         </li>
       </CSSTransition>

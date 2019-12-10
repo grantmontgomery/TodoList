@@ -15,12 +15,11 @@ $primarywidth: 100px;
     background: $primaryItem;
     position: relative;
     list-style: none;
-    height: 0;
-    transition: 100ms cubic-bezier(0.215, 0.61, 0.355, 1);
+    display: flex;
+    height: 40px;
+    margin-bottom: 10px;
+    // transition: 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
     @include flexonem();
-  }
-  .show {
-    height: fit-content;
     &:hover {
       transform: scale(1.02);
     }
@@ -30,45 +29,43 @@ $primarywidth: 100px;
 @keyframes slideIn {
   0% {
     opacity: 0;
-    transform: translate(-300px, 0);
+    max-height: 0;
+    transform: translate(-300px);
   }
 
   100% {
     opacity: 1;
-    transform: translate(0, 0);
+    max-height: 40px;
+    transform: translate(0);
   }
 }
 
 @keyframes slideOut {
   0% {
     opacity: 1;
-    transform: translate(0, 0);
+    max-height: 40px;
+    transform: translate(0);
   }
 
   100% {
     opacity: 0;
-    transform: translate(-300px, 0);
+    max-height: 0;
+    transform: translate(-300px);
   }
 }
 
 .slide-transition-enter {
-  transition: 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
-  position: absolute;
-}
-.slide-transition-enter-active {
-  animation-name: slideIn;
-  animation-duration: 400ms;
-  transition: 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  &.slide-transition-enter-active {
+    animation-name: slideIn;
+    animation-duration: 400ms;
+    transition: 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
 }
 
 .slide-transition-exit {
-  transition: 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
-  height: 0;
-}
-
-.slide-transition-exit-active {
-  animation-name: slideOut;
-  animation-duration: 400ms;
-  height: 0;
-  transition: 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  &.slide-transition-exit-active {
+    animation-name: slideOut;
+    animation-duration: 400ms;
+    transition: 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
 }
