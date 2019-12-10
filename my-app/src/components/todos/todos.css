@@ -98,13 +98,11 @@
           animation-duration: 400ms;
   -webkit-transition: 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
-  position: absolute;
 }
 
 .slide-transition-exit {
   -webkit-transition: 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
-  position: absolute;
   height: 0;
 }
 
@@ -116,6 +114,5 @@
   height: 0;
   -webkit-transition: 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
-  position: absolute;
 }
 /*# sourceMappingURL=todos.css.map */
