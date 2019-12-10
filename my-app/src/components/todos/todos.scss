@@ -10,11 +10,17 @@ $primarywidth: 100px;
 .list {
   position: absolute;
   float: left;
-  .child {
+  li {
     width: $primarywidth;
     background: $primaryItem;
-    position: absolute;
+    position: relative;
+    list-style: none;
+    height: 0;
+    transition: 100ms cubic-bezier(0.215, 0.61, 0.355, 1);
     @include flexonem();
+  }
+  .show {
+    height: fit-content;
     &:hover {
       transform: scale(1.02);
     }
@@ -46,29 +52,26 @@ $primarywidth: 100px;
 }
 
 .slide-transition-enter {
-  transition: cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
   position: absolute;
 }
 .slide-transition-enter-active {
   animation-name: slideIn;
   animation-duration: 400ms;
-  transition: cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
   position: absolute;
 }
 
 .slide-transition-exit {
-  transition: cubic-bezier(0.215, 0.61, 0.355, 1);
-  top: 0;
-  transform: translateY(0);
+  transition: 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
   position: absolute;
+  height: 0;
 }
 
 .slide-transition-exit-active {
   animation-name: slideOut;
   animation-duration: 400ms;
-  transition: cubic-bezier(0.215, 0.61, 0.355, 1);
-  top: 0;
-
-  transform: translateY(0);
+  height: 0;
+  transition: 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
   position: absolute;
 }
