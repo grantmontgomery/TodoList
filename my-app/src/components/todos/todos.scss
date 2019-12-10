@@ -58,12 +58,14 @@ $primarywidth: 100px;
   opacity: 0;
   max-height: 0;
   transform: translate(-300px);
+  transition: all 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
+
   &.slide-transition-enter-active {
     // animation-name: slideIn;
     // animation-duration: 400ms;
     transform: translate(0);
     opacity: 1;
-    transition: 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
+    // transition: all 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
     max-height: 40px;
   }
 }
@@ -72,10 +74,12 @@ $primarywidth: 100px;
   transform: translate(0);
   opacity: 1;
   max-height: 40px;
+  transition: all 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
+
   &.slide-transition-exit-active {
     // animation-name: slideOut;
     // animation-duration: 400ms;
-    transition: 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
+    // transition: all 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
     opacity: 0;
     max-height: 0;
     transform: translate(-300px);
